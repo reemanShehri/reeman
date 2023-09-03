@@ -76,7 +76,7 @@ Route::get('home' , function(){
    return view('site1.home');
 });
 
-Route::prefix('site2')->controller(SiteController::class)
+Route::prefix('site1')->controller(SiteController::class)
 ->name('site.')->group(function(){
     Route::get('/index' ,   'index')->name('index');
     Route::get('/about' ,  'about')->name('about');
