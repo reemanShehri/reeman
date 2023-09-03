@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,56 @@ Route:: put('put', function(){});
 Route:: delete('del', function(){});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// site 2
+
+Route::prefix('site2')->controller('SiteController::class')->name('rere.')->group(function(){
+
+
+    Route::get('/index', 'index')->name('index');
+
+    Route::get('/about', 'about')->name('about');
+    Route::get('/serve', 'serve')->name('serve');
+
+    Route::get('/contact', 'contact')->name('contact');
+
+});
+
+
+    // Route::prefix('site2')->group(function(){
+
+
+    //     Route::get('/about',[SiteController::class, 'site.about']);
+    // })->name('/about');
+
+    // Route::prefix('site2')->group(function(){
+
+
+    //     Route::get('/serve',[SiteController::class, 'site.serve']);
+    // })->name('/serve');
+
+
+
+    // Route::prefix('site2')->group(function(){
+
+
+    //     Route::get('/contact',[SiteController::class, 'site.contact']);
+    // })->name('site.contact');
+
+Route::get('home',function(){
+    return ('site2.home');
+});
