@@ -9,73 +9,77 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
+/*
+Route::get('/', function () {
+    return view('welcome');
+});
+*/
+/*
 
-Route::get('reeman', function () {
-    return "hi";
+Route::get('users' , function(){
+    return 'users' ;
 });
 
-Route::get('reeman{name}', function ($name=null) {
-    return 'hi dear id '. $name;
+Route::get('users/profile/{name}' , function($name){
+    return 'users profile ' . $name ;
 });
 
-Route:: put('put', function(){});
-Route:: delete('del', function(){});
+Route::get('users/profile' , function(){
+    return 'users profile ' ;
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// site 2
-
-Route::prefix('site2')->controller('SiteController::class')->name('rere.')->group(function(){
-
-
-    Route::get('/index', 'index')->name('index');
-
-    Route::get('/about', 'about')->name('about');
-    Route::get('/serve', 'serve')->name('serve');
-
-    Route::get('/contact', 'contact')->name('contact');
-
+Route::get('users/profile/{name?}' , function($name = null){
+    if($name == null){
+       return 'response null' ;
+    }else{
+     return 'users profile ' . $name ;
+    }
 });
 
 
-    // Route::prefix('site2')->group(function(){
+Route::get('news/{id?}' , function($id = null){
+
+    if($id != null ){
+        return 'news ' . $id ;
+    }
+
+    return 'all news ... ' ;
+});
+
+Route::put('put' , function(){});
+Route::delete('delete' , function(){});
+
+Route::get('about' , function(){
+    return 'about us' ;
+});
+
+Route::get('index' , function(){
+    return view('index');
+});*/
 
 
-    //     Route::get('/about',[SiteController::class, 'site.about']);
-    // })->name('/about');
-
-    // Route::prefix('site2')->group(function(){
 
 
-    //     Route::get('/serve',[SiteController::class, 'site.serve']);
-    // })->name('/serve');
+// site 1  .. site1/home
 
 
 
-    // Route::prefix('site2')->group(function(){
+Route::get('/' , function () {
+   return view('index') ;
+});
 
+Route::get('home' , function(){
+   return view('site1.home');
+});
 
-    //     Route::get('/contact',[SiteController::class, 'site.contact']);
-    // })->name('site.contact');
-
-Route::get('home',function(){
-    return ('site2.home');
+Route::prefix('site2')->controller(SiteController::class)
+->name('site.')->group(function(){
+    Route::get('/index' ,   'index')->name('index');
+    Route::get('/about' ,  'about')->name('about');
+    Route::get('/services' ,  'services')->name('services');
+    Route::get('/contact' ,  'contact')->name('contact');
 });
