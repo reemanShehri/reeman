@@ -31,6 +31,6 @@ class SiteController extends Controller
 
     function contact()
     {
-        return view('site1.conact') ;
+        return view('site1.contact') ;
     }
 }
