@@ -23,6 +23,8 @@ class SiteController extends Controller
     {
         return view('site1.about');
     }
+    // inner views  name of folder in sourve / name of file 
+    // when we want the output controller just transfer to views , so we write name of file that exists in route web as (site2/index )
 
     function services()
     {
@@ -32,5 +34,10 @@ class SiteController extends Controller
     function contact()
     {
         return view('site1.contact') ;
+    }
+
+    function home()
+    {
+        return view('site2.home') ;
     }
 }

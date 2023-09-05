@@ -47,6 +47,9 @@
 
 
            @yield('content')
+
+
+           <h1>master page</h1>
      </main>
 
 
