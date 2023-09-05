@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
+
+// Route::get('', function () {
+//     return ('welcome');
+// });
+
 /*
 
 Route::get('users' , function(){
@@ -70,14 +70,14 @@ Route::get('index' , function(){
 
 
 Route::get('/' , function () {
-   return view('index') ;
+   return view('site2.index') ;
 });
 
 Route::get('home' , function(){
    return view('site1.home');
 });
 
-Route::prefix('site2')->controller(SiteController::class)
+Route::prefix('site1')->controller(SiteController::class)
 ->name('site.')->group(function(){
     Route::get('/index' ,   'index')->name('index');
     Route::get('/about' ,  'about')->name('about');
@@ -87,17 +87,23 @@ Route::prefix('site2')->controller(SiteController::class)
 });
 
 
-Route::prefix('site3')->controller(Site2Controller::class)->name('site.')->group(function(){
-    Route::get('/','index')->name('index');
-    Route::get('/post-msg','post-msg')->name('post-msg');
-    Route::get('/view','view')->name('view');
-    Route::get('/about','about')->name('about');
+// Route::prefix('site3')->controller(Site2Controller::class)->name('site.')->group(function(){
+//     Route::get('/','index')->name('index');
+//     Route::get('/post-msg','post-msg')->name('post-msg');
+//     Route::get('/view','view')->name('view');
+//     Route::get('/about','about')->name('about');
+// });
+
+
+Route::prefix('site2')->group(function(){
+    Route::get('/' , [Site3Controller::class , 'index'] )->name('index');
+    Route::get('about' , [Site3Controller::class , 'about'])->name('about');
+    Route::post('post_msg' , [Site3Controller::class , 'post_msg'])->name('post_msg');
+    Route::get('view' , [Site3Controller::class , 'view'] )->name('view');
 });
 
 
-Route::prefix('site4')->group(function(){
-    Route::get('/' , [Site2Controller::class , 'index'] )->name('index');
-    Route::get('/about' , [Site2Controller::class , 'about'])->name('about');
-    Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
-    Route::get('/view' , [Site2Controller::class , 'view'] )->name('view');
-});
+
+// Route::get('n22' , function () {
+//     return view('site2.index') ;
+//  });

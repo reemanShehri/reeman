@@ -1,5 +1,6 @@
 @extends('site2.master')
-@section('title' , 'index | bootstrap')
+@section('title' , 'index | bootstrap')     
+<!-- add title  -->
 @section('content')
 
 
@@ -138,6 +139,10 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
+
+
+
+                <!-- search get just , other form take post -->
                 <form method="POST" action="{{  route('post_msg') }}" id="contactForm" data-sb-form-api-token="API_TOKEN">
                     @csrf
                     <label>Massege</label>
@@ -156,6 +161,7 @@
 
 
 @stop
+<!-- // @stop as @endsection  -->
 
 
 
