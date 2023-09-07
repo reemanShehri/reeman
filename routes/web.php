@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\form1Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,7 +78,7 @@ Route::get('home' , function(){
    return view('site1.home');
 });
 
-Route::prefix('site1')->controller(SiteController::class)
+Route::prefix('site2')->controller(SiteController::class)
 ->name('site.')->group(function(){
     Route::get('/index' ,   'index')->name('index');
     Route::get('/about' ,  'about')->name('about');
@@ -95,15 +96,14 @@ Route::prefix('site1')->controller(SiteController::class)
 // });
 
 
-Route::prefix('site2')->group(function(){
-    Route::get('/' , [Site3Controller::class , 'index'] )->name('index');
-    Route::get('about' , [Site3Controller::class , 'about'])->name('about');
-    Route::post('post_msg' , [Site3Controller::class , 'post_msg'])->name('post_msg');
-    Route::get('view' , [Site3Controller::class , 'view'] )->name('view');
+Route::prefix('site3')->group(function(){
+    Route::get('/' , [Site2Controller::class , 'index'] )->name('index');
+    Route::get('about' , [Site2Controller::class , 'about'])->name('about');
+    Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
+    Route::get('view' , [Site2Controller::class , 'view'] )->name('view');
 });
 
 
 
-// Route::get('n22' , function () {
-//     return view('site2.index') ;
-//  });
+Route::get('/form1',[form1Controller::class,'index'])->name('index');
+Route::get('/form1Submit',[form1Controller::class,'form1Submit'])->name('form1Submit');

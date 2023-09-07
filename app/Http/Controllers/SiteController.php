@@ -10,7 +10,7 @@ class SiteController extends Controller
     {
         $data = [1, 2, 3, 4];
          $age = 19 ;
-      // return view('index')->with('data' , $data)->with('age' , $age);
+      // return view('site1.index')->with('data' , $data)->with('age' , $age);
       /* return view('index' , [
         'data' => $data ,
         'age' => $age
