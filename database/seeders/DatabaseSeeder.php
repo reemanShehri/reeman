@@ -20,5 +20,25 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-    }
+ 
+
+
+
+        // User::factory()->create([
+
+
+        //     'name'=>'ree',
+        //     'age'=>33,
+        //     "email"=>'re@gmail.com',
+        //     'password'=>'1233'
+        
+        // ]);
+
+        //model name :: factory(rows NUM)
+    //   Category::factory(10)->create();
+      
+
+
+        }
+        
 }
